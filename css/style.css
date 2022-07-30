@@ -4,6 +4,7 @@
   --main-text-color: white;
   --second-color: cyan;
   --overlay-color: rgb(125, 229, 229);
+  --top-header-color: rgba(0, 0, 0, 0.33);
 }
 
 * {
@@ -67,7 +68,7 @@ li {
   top: 0;
   padding: 1.3rem 4rem;
   width: 100vw;
-  background-color: rgba(0, 0, 0, 0.33);
+  background-color: var(--top-header-color);
   color: var(--main-text-color);
   z-index: 1000;
 }
@@ -112,6 +113,13 @@ li {
   text-shadow: 1px 1px 10px black;
 }
 
+.text > p {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  max-width: 75vw;
+}
+
 .my-project-link {
   display: inline-block;
   background-color: var(--main-text-color);
@@ -135,8 +143,6 @@ li {
 
 .socials {
   position: absolute;
-  bottom: 1rem;
-  padding: 0.6rem 4rem;
   z-index: 20;
 }
 
@@ -187,6 +193,7 @@ li {
   transition: 0.5s;
 }
 
+
 /* min-width:769px */
 @media (min-width:769px) {
   .main.active {
@@ -223,6 +230,11 @@ li {
   
   .hamburger-icon:hover {
     filter: none;
+  }
+
+  .socials {
+    bottom: 1rem;
+    padding: 0.6rem 4rem;
   }
 
   .side-menu {
@@ -299,6 +311,8 @@ li {
   }
 }
 
+
+/* max-width: 992px */
 @media (max-width: 992px) {
   .text > h1 {
     font-size: 3.5rem;
@@ -332,10 +346,9 @@ li {
 
 /* max-width: 768px */
 @media (max-width: 768px) {
-  .overlay {
-    background-color: lightgreen;
-    opacity: 0.3;
-  }
+.top-header {
+  display: none;
+}
 
   .text {
     text-align: justify;
@@ -356,8 +369,24 @@ li {
     letter-spacing: 0.5rem;
   }
 
-  .socials {
+  .my-project-link {
     display: none;
+  }
+
+  .socials {
+    top: 0;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--top-header-color);
+  }
+
+  .socials-list {
+    min-width: 100vw;
+    justify-content: space-evenly;
+    min-height: 5rem;
+    align-items: center;
   }
 
   .side-menu {
@@ -398,11 +427,6 @@ li {
 
 /* max-width: 576px */
 @media (max-width: 576px) {
-  .overlay {
-    background-color: yellow;
-    opacity: 0.5;
-  }
-
   .text {
     text-align: left;
   }
@@ -422,9 +446,12 @@ li {
     letter-spacing: 0.3rem;
   }
 
+  .my-project-link {
+    display: none;
+  }
+
   .side-menu-items {
     min-height: 115px;
-  }
   }
 
   .single-item {
