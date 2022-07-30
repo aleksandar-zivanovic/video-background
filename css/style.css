@@ -37,7 +37,6 @@ li {
   align-items: center;
   color: var(--main-text-color);
   z-index: 5;
-
 }
 
 .main > video {
@@ -47,11 +46,6 @@ li {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-}
-
-.main.active {
-  right: 15rem;
-  padding-left: 15rem;
 }
 
 .overlay {
@@ -78,33 +72,6 @@ li {
   z-index: 1000;
 }
 
-.main.active .top-header {
-  left: 0rem;
-}
-
-.main.active > .top-header > .home-header {
-  padding-left: 15rem;
-}
-
-.hamburger-icon {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  background-image: url('/src/img/hamburger-menu.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer;
-  filter: invert(1);
-}
-
-.hamburger-icon.active {
-  background-image: url('/src/img/close_icon_black.svg');
-}
-
-.hamburger-icon:hover {
-  filter: none;
-}
-
 .text {
   position: relative;
   padding: 0.6rem 4rem;
@@ -125,10 +92,6 @@ li {
 .text > .header-one-word {
   font-size: 8rem;
   letter-spacing: 3rem;
-}
-
-.main.active > .text > .header-one-word {
-  letter-spacing: 2.5rem;
 }
 
 .text > h2 {
@@ -201,56 +164,16 @@ li {
   transform: scale(1.5) translate(-5px);
 }
 
-.side-menu {
-  display: none;
-  position: absolute;
-  right: 0;
-  width: 0;
-  height: 100vh;
-  
-}
-
-.side-menu.active {
-  display: block;
-  width: 15rem;
-}
-
-.side-menu-items {
-  display: flex;
-  justify-content: space-evenly;
-  width: 100%;
-}
-
 .single-item {
-  right: -2.5rem;
   position: relative;
-  background-color: rgba(77, 77, 77, 0.69);
-  padding: 1rem;
-  width: 100%;
-  border: 3px solid var(--second-color);
-  text-align: center;
-  width: 0;
-  height: 0;
-  transform: rotateY(0) rotate(45deg);
-  margin: auto 0;
-  transition: 1s;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgba(77, 77, 77, 0.69);
+  border: 3px solid var(--second-color);
+  transform: rotateY(0) rotate(45deg);
+  margin: auto 0;
   transition: 0.5s;
-}
-
-.side-menu.active .single-item {
-  width: 150px;
-  height: 150px;
-}
-
-.side-menu.active .single-item:hover {
-  background-color: var(--main-text-color);
-  border: 1px solid grey;
-  transform: rotateY(0) rotate(0deg);
-  width: 100%;
-  right: 0;
 }
 
 .single-item:hover > .item-text {
@@ -264,20 +187,89 @@ li {
   transition: 0.5s;
 }
 
-
+/* min-width:769px */
 @media (min-width:769px) {
+  .main.active {
+    right: 15rem;
+    padding-left: 15rem;
+  }
+
+  .main.active .top-header {
+    left: 0rem;
+  }
+
+  .main.active > .top-header > .home-header {
+    padding-left: 15rem;
+  }
+
+  .main.active > .text > .header-one-word {
+    letter-spacing: 2.5rem;
+  }
+
+  .hamburger-icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-image: url('/src/img/hamburger-menu.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    filter: invert(1);
+  }
+  
+  .hamburger-icon.active {
+    background-image: url('/src/img/close_icon_black.svg');
+  }
+  
+  .hamburger-icon:hover {
+    filter: none;
+  }
+
   .side-menu {
+    display: none;
+    position: absolute;
+    right: 0;
     top: 0;
+    width: 0;
+    height: 100vh;
     border-left: 2px solid rgb(10, 6, 33);
   }
 
+  .side-menu.active {
+    display: block;
+    width: 15rem;
+  }
+
   .side-menu-items {
+    display: flex;
+    justify-content: space-evenly;
     flex-direction: column;
+    width: 100%;
     min-height: 100%;
+  }
+
+  .single-item {
+    right: -2.5rem;
+    padding: 1rem;
+    width: 100%;
+  }
+  
+  .side-menu.active .single-item {
+    width: 150px;
+    height: 150px;
+  }
+
+  .side-menu.active .single-item:hover {
+    background-color: var(--main-text-color);
+    border: 1px solid grey;
+    transform: rotateY(0) rotate(0deg);
+    width: 100%;
+    right: 0;
   }
 }
 
 
+/* max-width: 1200px */
 @media (max-width: 1200px) {
   .text > h1 {
     font-size: 4.2rem;
@@ -340,15 +332,9 @@ li {
 
 /* max-width: 768px */
 @media (max-width: 768px) {
-
-  body {
-    position: relative;
-    display: flex;
-  }
-
   .overlay {
     background-color: lightgreen;
-  opacity: 0.5;
+    opacity: 0.3;
   }
 
   .text {
@@ -370,12 +356,7 @@ li {
     letter-spacing: 0.5rem;
   }
 
-
   .socials {
-    display: none;
-  }
-
-  .hamburger-icon {
     display: none;
   }
 
@@ -385,7 +366,6 @@ li {
     max-height: 150px;
     min-width: 100vw;
     align-items: center;
-    background: white none repeat scroll 0% 0%;
     position: fixed;
     bottom: 0px;
     z-index: 10000;
@@ -395,43 +375,24 @@ li {
     display: flex;
     justify-content: space-evenly;
     min-width: 100vw;
+    min-height: 143px;
   }
 
   .single-item {
-    position: relative;
-    background-color: rgba(77, 77, 77, 0.69);
-    padding: 1rem;
-    border: 3px solid var(--second-color);
-    text-align: center;
     width: 100px;
     height: 100px;
-    transform: rotateY(0) rotate(45deg);
-    margin: auto 0;
-    transition: 1s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s;
   }
-  
 
   .side-menu .single-item:hover {
+    background-color: var(--main-text-color);
     border: 1px solid grey;
     transform: rotateY(0) rotate(0deg);
-    
   }
 
   .single-item:hover > .item-text {
     color: rgb(0, 0, 0);
     transform: rotateY(0) rotate(0deg);
   }
-
-  .item-text {
-    color: var(--second-color);
-    transform: rotateY(0) rotate(-45deg);
-    transition: 0.5s;
-  } */
-
 }
 
 
@@ -439,26 +400,36 @@ li {
 @media (max-width: 576px) {
   .overlay {
     background-color: yellow;
-  opacity: 0.5;
+    opacity: 0.5;
   }
-
 
   .text {
     text-align: left;
-    margin: 0;
   }
   
   .text > h1 {
-    font-size: 2.5rem;
+    font-size: 1.9rem;
+    letter-spacing: 0.5rem;
   }
 
   .text > .header-one-word {
-    font-size: 3rem;
-    letter-spacing: 2rem;
+    font-size: 2.5rem;
+    letter-spacing: 1.4rem;
   }
 
   .text > h2 {
-    font-size: 2rem;
-    letter-spacing: 0.5rem;
+    font-size: 1.5rem;
+    letter-spacing: 0.3rem;
+  }
+
+  .side-menu-items {
+    min-height: 115px;
+  }
+  }
+
+  .single-item {
+    width: 80px;
+    height: 80px;
+    margin: auto auto;
   }
 }
